@@ -1,23 +1,22 @@
 import React, { useState } from 'react';
 import './App.css';
 
+// Handle display of results or error messages
 const Results = ({username, password, validated, errorMessage}) => {
   if(validated){
     return (
-      <p>
-        Form is validated. <br/> Username: {username}. Password: {password}
-      </p>
+      <p> Form is validated. <br/> Username: {username}. Password: {password} </p>
     )
   }else{
     return (
-      <p>
-        Error: {errorMessage}
-      </p>
+      <p> Error: {errorMessage} </p>
     )
   }
 }
 
 const App = () => {
+
+  // inititate useState hooks
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -47,9 +46,18 @@ const App = () => {
         Simple Form
       </h1>
       <form onSubmit={(e) => handleSubmit(e)}>
-        <input onChange={(e) => setUsername(e.target.value)} placeholder="Username" />
-        <input onChange={(e) => setPassword(e.target.value)} placeholder="Password" />
-        <input onChange={(e) => setConfirmPassword(e.target.value)} placeholder="Confirm Password" />
+        <input
+          type="text"
+          onChange={(e) => setUsername(e.target.value)}
+          placeholder="Username" />
+        <input
+          type="password"
+          onChange={(e) => setPassword(e.target.value)}
+          placeholder="Password" />
+        <input
+          type="password"
+          onChange={(e) => setConfirmPassword(e.target.value)}
+          placeholder="Confirm Password" />
         <button type="submit"> Submit </button>
       </form>
       {
