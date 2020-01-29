@@ -27,6 +27,7 @@ const App = () => {
   const handleSubmit = (e) => {
     e.preventDefault(); // stops the form submission from reloading the page
     setSubmitted(true);
+    setValidated(false);
     if(!username.length){
       setErrorMessage("Username cannot be blank. Please submit a username.");
     }else if(!password){
